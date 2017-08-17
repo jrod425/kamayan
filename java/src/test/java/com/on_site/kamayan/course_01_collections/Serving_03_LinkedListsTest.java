@@ -171,7 +171,7 @@ public class Serving_03_LinkedListsTest extends TestCase {
         assertThrows(IndexOutOfBoundsException.class, () -> { list.get(1); });
     }
 
-    @Ignore("Remove this line to run this test")
+    // @Ignore("Remove this line to run this test")
     @Test
     public void getCanRetrieveAnyElement() {
         LinkedList list = new LinkedList().add(1).add(2).add(42).add(43);

@@ -15,38 +15,43 @@ import org.junit.Test;
 public class Serving_01_FixedArraysTest extends TestCase {
     @Test
     public void aFixedArrayHasASizeSpecifiedWhenItIsCreated() {
-        assertEquals(__, new Object[0].length);
-        assertEquals(__, new Object[1].length);
-        assertEquals(__, new Object[42].length);
+        assertEquals(0, new Object[0].length);
+        assertEquals(1, new Object[1].length);
+        assertEquals(42, new Object[42].length);
     }
 
     @Test
     public void valuesCanBeSetAndRetrieved() {
         Object[] array = new Object[3];
 
+        // creates a new object (array #3)
+        // Defines array 0, 1, and 2 with the values 1, 2 and 42
+
         array[0] = 1;
         array[1] = 2;
         array[2] = 42;
 
-        assertEquals(__, array[0]);
-        assertEquals(__, array[1]);
-        assertEquals(__, array[2]);
+        assertEquals(1, array[0]);
+        assertEquals(2, array[1]);
+        assertEquals(42, array[2]);
     }
 
     @Test
     public void initialValuesAreNull() {
+        // This fucntion wants to check the values of the array index in object 3
+        // they are all null because in the previous step, object #3 did not have array values added.
         Object[] array = new Object[3];
-        assertEquals(__, array[0]);
-        assertEquals(__, array[1]);
-        assertEquals(__, array[2]);
+        assertEquals(null, array[0]);
+        assertEquals(null, array[1]);
+        assertEquals(null, array[2]);
     }
 
     @Test
     public void gettingAndSettingAtAnIndexMustBeWithinTheBoundsOfTheInitialSize() {
         Object[] array = new Object[5];
-        assertThrows(___, () -> { Object x = array[-1]; });
-        assertThrows(___, () -> { Object x = array[5]; });
-        assertThrows(___, () -> array[-1] = 1);
-        assertThrows(___, () -> array[5] = 42);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> { Object x = array[-1]; });
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> { Object x = array[5]; });
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> array[-1] = 1);
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> array[5] = 42);
     }
 }
